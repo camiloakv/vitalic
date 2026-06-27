@@ -1,4 +1,10 @@
 \documentclass{article}
+\usepackage[colorlinks = true,
+            linkcolor = black,
+            urlcolor  = black,
+            citecolor = black,
+            anchorcolor = black]{hyperref}
+
 \begin{document}
 
 \section*{Header}
@@ -42,7 +48,11 @@
 \section*{ {{education_name}} }
 
 {% for edu in education %}
+{% if edu['link'] %}
+\subsection*{ \href{ {{edu.link}}}{ {{edu.title}}} }
+{% else %}
 \subsection*{ {{edu.title}} }
+{% endif %}
 \textit{ {{ edu.institution }} }
 
 {{ edu.date }}
