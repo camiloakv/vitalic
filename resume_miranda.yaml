@@ -1,0 +1,32 @@
+name: 'MIRANDA PRIESTLY'
+subheader: 'Editor-in-Chief | Luxury Fashion | Editorial Leadership | Brand Strategy'
+location: 'New York, NY'
+phone: '001-646-6455231'
+email: 'miranda.priestly@runway.com'
+linkedin_raw: 'https://www.linkedin.com/in/mirandapriestly/'
+linkedin_clean: 'linkedin.com/in/mirandapriestly'
+photo_filename: 'miranda.png'
+
+summary_name: 'SUMMARY'
+summary_contents: 'Visionary Editor-in-Chief and luxury media executive with decades of experience shaping global fashion, culture, and consumer trends. Renowned for uncompromising standards, exceptional editorial judgment, and the ability to identify emerging talent while driving world-class creative teams. Proven track record of transforming publications into industry benchmarks, influencing designers, brands, and public opinion through strategic leadership, innovation, and an unwavering commitment to excellence.'
+
+experience_name: 'EXPERIENCE'  #this is a test comment
+
+jobs:
+  1:
+    role: 'Editor-in-Chief'
+    company: 'Runway'
+    start: '01/1999'
+    end: '12/2006'
+    location: 'New York, NY'
+    description: 'Doin stuff, doin stuff, doin stuff, doin stuff, doin stuff, doin stuff, doin stuff.'
+    items:
+      1: 'Some stuff.'
+      2: 'More stuff.'
+  2:
+    role: 'Sales assistant'
+    company: 'Prada'
+    start: '01/1998'
+    end: '12/1998'
+    location: 'London'
+    description: 'Boring stuff and more boring stuff.'
