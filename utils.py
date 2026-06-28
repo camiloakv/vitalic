@@ -38,6 +38,83 @@ def render_template(template_path, data):
     template = env.get_template(os.path.basename(template_path))
     return template.render(**data)
 
+
+# Routines to clean LaTeX
+
+def clean_latex_comments(template: str) -> str:
+    """
+    Clean LaTeX comments from a template while preserving Jinja2 syntax.
+
+    Rules:
+    - Lines starting with '%' (not Jinja2) → remove entire line
+    - Inline '%' (not inside Jinja2 blocks) → remove from '%' to end of line
+
+    Jinja2 syntax ({% %}, {{ }}, {# #) is preserved.
+    """
+    lines = template.split('\n')
+    result = []
+    in_jinja_block = False
+
+    jinja_starts = ['{%', '{{', '{#']
+    jinja_ends = ['%}', '}}', '#}']
+
+    for line in lines:
+        stripped = line.lstrip()
+
+        for tag in jinja_starts:
+            if tag in line:
+                in_jinja_block = True
+
+        for tag in jinja_ends:
+            if tag in line:
+                in_jinja_block = False
+
+        if not stripped:
+            result.append(line)
+            continue
+
+        #if stripped in ['{% raw %}', '{% endraw %}']:
+        reserved_lines = [
+            '{% raw %}',
+            '{% endraw %}',
+            '{% endfor %}'
+            '{% else %}'
+            '{% endif %}'
+        ]
+        if stripped in reserved_lines or stripped.startswith(r'{% for ') or stripped.startswith(r'{% if '):
+            result.append(line)
+            continue
+
+        if stripped.startswith('%'):
+            is_jinja = any(stripped.startswith(t) for t in jinja_starts)
+            if is_jinja:
+                result.append(line)
+            else:
+                continue
+
+        elif '%' in line and not in_jinja_block:
+            first_percent = line.index('%')
+            line = line[:first_percent]
+            result.append(line)
+
+        else:
+            result.append(line)
+
+    return '\n'.join(result)
+
+
+def clean_raw_template(filename_raw, filename_clean):
+    """Get clean tex template from raw respecting Jinja2 logic"""
+    with open(filename_raw, "r", encoding="utf-8") as f:
+        raw_tex = f.read()
+
+    tex_clean = clean_latex_comments(raw_tex)
+
+    with open(filename_clean, "w", encoding="utf-8") as f:
+        f.write(tex_clean)
+
+
+
 def main():
 
     #filename_resume = 'resume_miranda.yaml'
@@ -47,11 +124,12 @@ def main():
     filename_layout = 'layout_en.yml'
     filename_resume = 'resume_en.yaml'
     filename = 'resume.tex'
-    filename_template = Path('clean', filename)  # TODO: clean from raw template
+
+    filename_raw = Path('raw', filename)
+    filename_clean = Path('clean', filename)
     filename_filled = Path('filled', filename)
 
-    # Clean template
-    # TODO
+    clean_raw_template(filename_raw, filename_clean)
 
     # load layout data, no preprocessing
     #data_layout = {}  # for resume_miranda.yaml
@@ -65,7 +143,7 @@ def main():
     data = {**data_layout, **data_resume}
 
     # fill template with data
-    rendered = render_template(filename_template, data)
+    rendered = render_template(filename_clean, data)
 
     #os.makedirs('filled', exist_ok=True)
     with open(filename_filled, 'w', encoding="utf-8") as f:
