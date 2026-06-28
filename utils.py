@@ -9,11 +9,16 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 
 def load_yaml(filepath):
-    """Load YAML file and convert jobs data to list format for Jinja2"""
+    """Load YAML file and convert sections data to list format for Jinja2"""
     with open(filepath, 'r', encoding='utf-8') as f:
         data = yaml.safe_load(f)
 
-    selected_sections = {'jobs', 'skills', 'education'}  #, 'publications', 'projects', etc
+    selected_sections = {
+        'jobs',
+        'skills',
+        'education',
+        'languages',
+    }  #, 'publications', 'projects', etc
     selected_sections = selected_sections.intersection(data.keys())
     for section in selected_sections:
         subsections = []
@@ -73,7 +78,6 @@ def clean_latex_comments(template: str) -> str:
             result.append(line)
             continue
 
-        #if stripped in ['{% raw %}', '{% endraw %}']:
         reserved_lines = [
             '{% raw %}',
             '{% endraw %}',
@@ -81,7 +85,7 @@ def clean_latex_comments(template: str) -> str:
             '{% else %}',
             '{% endif %}',
         ]
-        if (stripped in reserved_lines) or stripped.startswith(r'{% for ') or stripped.startswith(r'{% if '):
+        if stripped in reserved_lines or stripped.startswith(r'{% for ') or stripped.startswith(r'{% if '):
             result.append(line)
             continue
 
