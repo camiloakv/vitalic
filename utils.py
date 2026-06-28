@@ -4,45 +4,8 @@ Script to generate the resume from YAML using Jinja2
 This script creates filled/resume_miranda.tex from raw/resume_miranda.tex and resume_miranda.yaml
 """
 from pathlib import Path
-import os
-import yaml
+import os, re, yaml
 from jinja2 import Environment, FileSystemLoader
-
-def load_yaml(filepath):
-    """Load YAML file and convert sections data to list format for Jinja2"""
-    with open(filepath, 'r', encoding='utf-8') as f:
-        data = yaml.safe_load(f)
-
-    selected_sections = {
-        'jobs',
-        'skills',
-        'education',
-        'languages',
-        'passions',
-    }  #, 'publications', 'projects', etc
-    selected_sections = selected_sections.intersection(data.keys())
-    for section in selected_sections:
-        subsections = []
-        for subsection_key in sorted(data[section].keys(), key=lambda x: int(x)):
-            subsection = data[section][subsection_key].copy()
-            if 'items' in subsection:
-                subsection['items'] = list(subsection['items'].values())
-            else:
-                subsection['items'] = []
-            subsections.append(subsection)
-        data[section] = subsections
-
-    return data
-
-def render_template(template_path, data):
-    """Render Jinja2 template with the given data"""
-    template_dir = os.path.dirname(template_path)
-    env = Environment(
-        loader=FileSystemLoader(template_dir),
-        autoescape=False,  # Important: don't escape LaTeX
-    )
-    template = env.get_template(os.path.basename(template_path))
-    return template.render(**data)
 
 
 # Routines to clean LaTeX
@@ -108,16 +71,120 @@ def clean_latex_comments(template: str) -> str:
     return '\n'.join(result)
 
 
-def clean_raw_template(filename_raw, filename_clean):
-    """Get clean tex template from raw respecting Jinja2 logic"""
-    with open(filename_raw, "r", encoding="utf-8") as f:
-        raw_tex = f.read()
+def clean_raw_template(filename_in, filename_out):
+    """Get clean tex template from raw respecting Jinja2 logic."""
+    with open(filename_in, "r", encoding="utf-8") as f:
+        tex_raw = f.read()
 
-    tex_clean = clean_latex_comments(raw_tex)
+    tex_clean = clean_latex_comments(tex_raw)
 
-    with open(filename_clean, "w", encoding="utf-8") as f:
+    with open(filename_out, "w", encoding="utf-8") as f:
         f.write(tex_clean)
 
+    return True
+
+
+def remove_whitespaces_from_line(line) -> str:
+
+    # first pass: direct, remove spaces after left braces
+    s = line
+    afterleft = False
+    li = []
+    for c in s:
+        keep = True
+        if afterleft:
+            if c == ' ':
+                keep = False
+            else:
+                afterleft = False
+        if c == '{':
+            afterleft = True
+        if keep:
+            li.append(c)
+    s = ''.join(li)
+
+    # second pass: reverse, remove spaces after right braces
+    s = s[::-1]
+    afterright = False
+    li = []
+    for c in s:
+        keep = True
+        if afterright:
+            if c == ' ':
+                keep = False
+            else:
+                afterright = False
+        if c == '}':
+            afterright = True
+        if keep:
+            li.append(c)
+    s = ''.join(li)
+
+    # reverse again
+    return s[::-1]
+
+
+def remove_whitespace_lines(text):
+
+    l = text.split('\n')
+    l = [remove_whitespaces_from_line(line) for line in l]
+    return '\n'.join(l)
+
+
+def remove_template_whitespaces(filename_in, filename_out):
+    """Workaround: remove whitespaces from tex template.
+
+    These whitespaces were included to make Jinja2 work
+    but ended up messing formatting, for instance in section names.
+    """
+    with open(filename_in, "r", encoding="utf-8") as f:
+        tex_in = f.read()
+
+    #tex_out = remove_specific_whitespaces(tex_in)
+    tex_out = remove_whitespace_lines(tex_in)
+
+    with open(filename_out, "w", encoding="utf-8") as f:
+        f.write(tex_out)
+
+
+
+# Routines for PDF analysis
+
+def load_yaml(filepath):
+    """Load YAML file and convert sections data to list format for Jinja2"""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+
+    selected_sections = {
+        'jobs',
+        'skills',
+        'education',
+        'languages',
+        'passions',
+    }  #, 'publications', 'projects', etc
+    selected_sections = selected_sections.intersection(data.keys())
+    for section in selected_sections:
+        subsections = []
+        for subsection_key in sorted(data[section].keys(), key=lambda x: int(x)):
+            subsection = data[section][subsection_key].copy()
+            if 'items' in subsection:
+                subsection['items'] = list(subsection['items'].values())
+            else:
+                subsection['items'] = []
+            subsections.append(subsection)
+        data[section] = subsections
+
+    return data
+
+def render_template(template_path, data):
+    """Render Jinja2 template with the given data"""
+    template_dir = os.path.dirname(template_path)
+    env = Environment(
+        loader=FileSystemLoader(template_dir),
+        autoescape=False,  # Important: don't escape LaTeX
+    )
+    template = env.get_template(os.path.basename(template_path))
+    return template.render(**data)
 
 
 def main():
@@ -150,11 +217,13 @@ def main():
     # fill template with data
     rendered = render_template(filename_clean, data)
 
+    # remove whitespaces near brackets
+    rendered = remove_whitespace_lines(rendered)  # TODO: rename 'rendered', 'filled'
+
     #os.makedirs('filled', exist_ok=True)
     with open(filename_filled, 'w', encoding="utf-8") as f:
         f.write(rendered)
     print(f"Successfully generated {filename_filled}")
 
-    # TODO: remove whitespaces in curly braces
 if __name__ == "__main__":
     main()
