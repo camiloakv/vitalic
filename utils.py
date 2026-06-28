@@ -18,6 +18,7 @@ def load_yaml(filepath):
         'skills',
         'education',
         'languages',
+        'passions',
     }  #, 'publications', 'projects', etc
     selected_sections = selected_sections.intersection(data.keys())
     for section in selected_sections:
