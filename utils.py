@@ -13,7 +13,7 @@ def load_yaml(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         data = yaml.safe_load(f)
 
-    selected_sections = {'jobs', 'education'}  #, 'publications', 'projects', etc
+    selected_sections = {'jobs', 'skills', 'education'}  #, 'publications', 'projects', etc
     selected_sections = selected_sections.intersection(data.keys())
     for section in selected_sections:
         subsections = []
@@ -77,11 +77,11 @@ def clean_latex_comments(template: str) -> str:
         reserved_lines = [
             '{% raw %}',
             '{% endraw %}',
-            '{% endfor %}'
-            '{% else %}'
-            '{% endif %}'
+            '{% endfor %}',
+            '{% else %}',
+            '{% endif %}',
         ]
-        if stripped in reserved_lines or stripped.startswith(r'{% for ') or stripped.startswith(r'{% if '):
+        if (stripped in reserved_lines) or stripped.startswith(r'{% for ') or stripped.startswith(r'{% if '):
             result.append(line)
             continue
 
