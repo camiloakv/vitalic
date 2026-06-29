@@ -5,28 +5,111 @@ phone: '001-646-6455231'
 email: 'miranda.priestly@runway.com'
 linkedin_raw: 'https://www.linkedin.com/in/mirandapriestly/'
 linkedin_clean: 'linkedin.com/in/mirandapriestly'
-photo_filename: 'miranda.png'
+photo: 'miranda.png'
 
 summary_name: 'SUMMARY'
 summary_contents: 'Visionary Editor-in-Chief and luxury media executive with decades of experience shaping global fashion, culture, and consumer trends. Renowned for uncompromising standards, exceptional editorial judgment, and the ability to identify emerging talent while driving world-class creative teams. Proven track record of transforming publications into industry benchmarks, influencing designers, brands, and public opinion through strategic leadership, innovation, and an unwavering commitment to excellence.'
 
-experience_name: 'EXPERIENCE'  #this is a test comment
 
+jobs_name: 'EXPERIENCE'
 jobs:
   1:
     role: 'Editor-in-Chief'
     company: 'Runway'
-    start: '01/1999'
-    end: '12/2006'
+    date: '01/2002 - 12/2006'
     location: 'New York, NY'
-    description: 'Doin stuff, doin stuff, doin stuff, doin stuff, doin stuff, doin stuff, doin stuff.'
     items:
-      1: 'Some stuff.'
-      2: 'More stuff.'
+      1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel molestie elit. Proin purus erat, varius molestie mauris nec, cursus laoreet magna. Mauris felis ex, tincidunt a e.'
+      2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel molestie elit. Proin purus erat, varius molestie mauris nec, cursus laoreet magna.'
   2:
     role: 'Sales assistant'
     company: 'Prada'
-    start: '01/1998'
-    end: '12/1998'
+    date: '01/2001 - 01/2002'
     location: 'London'
-    description: 'Boring stuff and more boring stuff.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel molestie elit. Proin purus erat, varius molestie mauris nec, cursus laoreet magna. Mauris felis ex, tincidunt a egestas non, aliquet q.\par'
+  3:
+    role: 'Sales assistant'
+    company: 'Chanel'
+    date: '01/2000 - 01/2001'
+    location: 'London'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel molestie elit. Proin purus erat, varius molestie mauris nec, cursus laoreet magna. Mauris felis ex, tincidunt a egestas non, aliquet quis lectus. Mauris in libero id dolor ultrices fringilla. Vestibulum laoreet eu lorem sed iaculis.\par'
+  4:
+    role: 'Sales assistant'
+    company: 'Fendi'
+    date: '01/1999 - 01/2000'
+    location: 'London'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscin:'
+    items:
+      1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel molestie elit. Proin purus erat, varius molestie mauris nec, cursus laoreet magna. Mauris fe.\par'
+      2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel molestie elit. Proin purus erat, varius molestie mauris nec, cursus laoreet magna. Mauris felis ex, tinc.\par'
+
+
+skills_name: 'SKILLS'
+skills:
+  1:
+    field: 'General'
+    stack: 'Editorial, high fasion, marketing, copywriting'
+  2:
+    field: 'Soft skills'
+    stack: 'Leadership, mentorship, empathy' #%{\raggedright }
+
+
+education_name: 'EDUCATION'
+education:
+  1:
+    title: 'PhD, Behavioral Psychology'
+    institution: 'New York University'
+    date: '11/2002'
+    location: 'New York, NY'
+    link: 'https://scholar.google.com/'
+  2:
+    title: 'MSc, Psychology'
+    institution: 'New York University'
+    date: '11/1998'
+    location: 'New York, NY'
+    link: 'https://scholar.google.com/'
+  3:
+    title: 'BSc, Psychology'
+    institution: 'New York University'
+    date: '11/1996'
+    location: 'New York, NY'
+  4:
+    title: 'BSc, Anthropology'
+    institution: 'New York University'
+    date: '11/1992'
+    location: 'New York, NY'
+
+
+languages_name: 'LANGUAGES'
+languages:
+  1:
+    lang: 'English'
+    proficiency: 'Native'
+    score: '5'
+  2:
+    lang: 'French'
+    proficiency: 'Proficient'
+    score: '4'
+  3:
+    lang: 'Italian'
+    proficiency: 'Advanced'
+    score: '3'
+  4:
+    lang: 'Spanish'
+    proficiency: 'Intermediate'
+    score: '2'
+  5:
+    lang: 'Japanese'
+    proficiency: 'Beginner'
+    score: '1'
+
+
+passions_name: 'PASSIONS'
+passions:
+  1:
+    icon: '\faMicroscope'
+    description: 'Study human nature.'
+  2:
+    icon: '\faLaptopCode'
+    description: 'Multimedia.'
+
