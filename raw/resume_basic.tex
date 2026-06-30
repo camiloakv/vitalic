@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[colorlinks = true,
+            linkcolor = black,
+            urlcolor  = black,
+            citecolor = black,
+            anchorcolor = black]{hyperref}
+
+\begin{document}
+
+\section*{Header}
+
+{\bfseries\Large{ {{name}} }}
+
+{{subheader}}
+
+{{location}}
+
+{{phone}}
+
+\section*{ {{summary_name}} }
+{{summary_contents}}
+
+%%%% EXPERIENCE %%%%
+{% if jobs %}
+\section*{ {{jobs_name}} }
+
+{% for job in jobs %}
+\subsection*{ {{job.role}} }
+\textit{ {{ job.company }} }
+
+{{ job.date }}
+
+{{ job.location }}
+
+{{ job.description }}
+{% if job['items'] %}
+\begin{itemize}
+{% for item in job['items'] %}
+  \item {{item}}
+{% endfor %}
+\end{itemize}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+%%%% EDUCATION %%%%
+{% if education %}
+\section*{ {{education_name}} }
+
+{% for edu in education %}
+{% if edu['link'] %}
+\subsection*{ \href{ {{edu.link}}}{ {{edu.title}}} }
+{% else %}
+\subsection*{ {{edu.title}} }
+{% endif %}
+\textit{ {{ edu.institution }} }
+
+{{ edu.date }}
+
+{{ edu.location }}
+
+{{ edu.description }}
+{% endfor %}
+{% endif %}
+
+
+\end{document}
