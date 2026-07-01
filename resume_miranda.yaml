@@ -48,36 +48,54 @@ skills_name: 'SKILLS'
 skills:
   1:
     field: 'General'
-    stack: 'Editorial, high fasion, marketing, copywriting'
+    stack: 'Editorial, High fashion, Publishing, Strategy'  #'Editorial leadership, High fashion, Luxury publishing, Copywriting, Brand strategy'
   2:
+    field: 'Management'
+    stack: 'Executive leadership, Talent development'  #'Executive leadership, Team management, Talent development, Crisis management'
+  3:
+    field: 'Editorial'
+    stack: 'Trend forecasting, Story planning, Fact-checking'  #'Trend forecasting, Story planning, Copy editing, Proofreading, Fact-checking'
+  4:
+    field: 'Business'
+    stack: 'Marketing, Advertising, Stakeholder relations'  #'Marketing, Advertising, Budget planning, Contract negotiation, Stakeholder relations'
+  5:
+    field: 'Creative'
+    stack: 'Art direction, Visual storytelling, Styling, Creative direction'  #'Art direction, Visual storytelling, Styling, Creative direction, Runway production'
+  6:
+    field: 'Technology'
+    stack: 'InDesign, Editorial CMS'  #Microsoft Office, Adobe Photoshop,
+  7:
+    field: 'Networking'
+    stack: 'Designer relations, Luxury brands'  #'Designer relations, Luxury brands, Public speaking, Media relations'
+  8:
     field: 'Soft skills'
-    stack: 'Leadership, mentorship, empathy' #%{\raggedright }
+    stack: 'Leadership, Empathy, Perfectionism'  #'Leadership, Decisiveness, Perfectionism, Composure under pressure, Empathy'
 
 
 education_name: 'EDUCATION'
 education:
   1:
-    title: 'PhD, Behavioral Psychology'
-    institution: 'New York University'
-    date: '11/2002'
+    title: 'Master of Business Admin.'
+    institution: 'Columbia Business School'
+    date: '1976'
     location: 'New York, NY'
-    link: 'https://scholar.google.com/'
+    link: 'https://guides.library.columbia.edu/uarchives/thesis'
   2:
-    title: 'MSc, Psychology'
+    title: 'M.A. Fashion Journalism'
     institution: 'New York University'
-    date: '11/1998'
+    date: '1974'
     location: 'New York, NY'
-    link: 'https://scholar.google.com/'
+    link: 'https://guides.nyu.edu/dissertations/nyu'
   3:
-    title: 'BSc, Psychology'
-    institution: 'New York University'
-    date: '11/1996'
-    location: 'New York, NY'
+    title: 'B.A. English Literature'
+    institution: 'Yale University'
+    date: '1972'
+    location: 'New Haven, CT'
   4:
-    title: 'BSc, Anthropology'
-    institution: 'New York University'
-    date: '11/1992'
-    location: 'New York, NY'
+    title: 'B.A. Art History'
+    institution: 'Yale University'
+    date: '1972'
+    location: 'New Haven, CT'
 
 
 languages_name: 'LANGUAGES'
@@ -94,22 +112,23 @@ languages:
     lang: 'Italian'
     proficiency: 'Advanced'
     score: '3'
-  4:
-    lang: 'Spanish'
-    proficiency: 'Intermediate'
-    score: '2'
-  5:
-    lang: 'Japanese'
-    proficiency: 'Beginner'
-    score: '1'
+  #4:
+  #  lang: 'Spanish'
+  #  proficiency: 'Intermediate'
+  #  score: '2'
+  #5:
+  #  lang: 'Japanese'
+  #  proficiency: 'Beginner'
+  #  score: '1'
 
 
 passions_name: 'PASSIONS'
 passions:
   1:
-    icon: '\faMicroscope'
-    description: 'Study human nature.'
-  2:
-    icon: '\faLaptopCode'
-    description: 'Multimedia.'
-
+    icon: '\faGem'  # you can find more icons in https://fontawesome.com/v5/icons
+    description: 'Turning trends into standards, excellence into habit, and impossible deadlines into someone else''s problem.'
+    #Turning trends into standards, excellence into habit, and impossible deadlines into someone else's problem.
+    #Recognizing exceptional talent, impeccable taste, and avoidable mistakes—usually before anyone else does.
+    #Fashion, precision, and the rare satisfaction of being right long before everyone agrees.
+    #Cultivating excellence, rewarding initiative, and reminding mediocrity that it always has alternatives.
+    #I appreciate exceptional taste, flawless execution, and silence when excellence is speaking.
