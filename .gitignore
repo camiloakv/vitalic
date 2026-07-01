@@ -8,3 +8,17 @@ wheels/
 
 # Virtual environments
 .venv
+
+raw/*
+!raw/resume.tex
+!raw/resume_basic.tex
+
+clean/*
+!clean/.gitkeep
+
+filled/*
+!filled/miranda.png
+!filled/resume.tex
+!filled/resume.pdf
+
+resume_en.yaml
