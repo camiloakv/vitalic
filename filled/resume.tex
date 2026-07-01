@@ -1,0 +1,334 @@
+
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks = true,
+            linkcolor = black,
+            urlcolor  = black,
+            citecolor = black,
+            anchorcolor = black]{hyperref}
+
+
+
+
+\usepackage[left=0.5in, right=0.2in, top=0.4in, bottom=0.3in]{geometry}
+
+\usepackage{fontspec} 
+\setmainfont{Roboto Light} 
+\setsansfont{Roboto}     
+
+
+\usepackage{xcolor}          
+\usepackage{ragged2e}        
+\usepackage{enumitem}        
+\usepackage{fontawesome5}    
+\usepackage{graphicx}        
+\usepackage{tikz}            
+\usepackage{calc}            
+\usepackage{fancyhdr}        
+\usepackage{pgffor}          
+
+\usepackage{titlesec}        
+\usepackage{enumitem}        
+
+
+\definecolor{enhancvblue}{HTML}{1e90ff}     
+\definecolor{enhancvgray}{HTML}{333333}     
+\definecolor{lightgraytext}{HTML}{666666}   
+\definecolor{mediumgray}{gray}{0.5}         
+\definecolor{lightgrayborder}{HTML}{DDDDDD} 
+
+
+
+
+
+
+\newcommand{\circleimage}[2]{
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+  \clip (0,0) circle (#1/2);
+  \node at (0,0) {\includegraphics[width=#1]{#2}};
+\end{tikzpicture}
+}
+
+
+
+
+
+\usepackage{paracol} 
+
+\AtBeginEnvironment{paracol}{\setlength{\parindent}{0pt}} 
+
+\setlength\columnsep{0.05\textwidth} 
+
+
+\pagestyle{empty} 
+
+\columnratio{0.6, 0.4} 
+
+
+
+\titleformat{\section}
+  {\LARGE\bfseries\scshape\raggedright}
+  {}
+  {0em}
+  {}
+  [{\titlerule[1.2pt]}]
+
+\titlespacing*{\section}
+  {0pt}    
+  {1.2ex}  
+  {0.6ex}  
+
+
+
+\newcommand{\resumeentry}[4]{
+
+  \par\vspace{0.5em}
+  {\color{enhancvgray}\bfseries\Large{#1}}\par
+  {\color{enhancvblue}\bfseries{#2}}\par
+  {\footnotesize
+  {\color{lightgray}\faCalendar}\ {\color{mediumgray}#3} \qquad {\color{lightgray}\faMapMarker}\ {\color{mediumgray}#4}\par
+}
+  \vspace{0.2em}
+
+}
+
+
+
+\newcommand{\scorecircles}[3]{
+\noindent
+\begin{minipage}[c]{0.5\linewidth}
+    {\fontsize{11pt}{13pt}\selectfont \color{black} #1}\hspace{2pt}
+    {\fontsize{9pt}{11pt}\selectfont \color{mediumgray} - #2}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.45\linewidth}
+    \raggedleft
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \foreach \i in {0,...,4} {
+            \ifnum\i<#3
+                \fill[enhancvblue] (\i*0.5,0) circle (0.2);
+            \else
+                \fill[lightgrayborder] (\i*0.5,0) circle (0.2);
+            \fi
+}
+    \end{tikzpicture}
+\end{minipage}
+}
+
+
+
+\usepackage{tabularx}
+\usepackage{array}
+
+\usepackage{ragged2e}
+
+
+\newcolumntype{R}{>{\bfseries}r}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+
+\setlength{\emergencystretch}{4em}
+\hyphenpenalty=500
+\exhyphenpenalty=500
+
+\usepackage[none]{hyphenat}
+
+
+
+\begin{document}
+
+
+
+\hspace{-0.2in}
+\begin{minipage}[t]{0.7\linewidth} 
+  \color{enhancvgray}
+  {\Huge\textbf{MIRANDA PRIESTLY}}\par
+  \vspace{0.1em}
+  {\color{enhancvblue}\textbf{Editor-in-Chief | Luxury Fashion | Editorial Leadership | Brand Strategy}}\par
+  \vspace{0.5em}
+  \small
+  \begin{tabular}[t]{@{}l@{}}
+    \textcolor{enhancvblue}{\faMapMarker}\ New York, NY \\
+    \textcolor{enhancvblue}{\faPhone}\ 001-646-6455231
+  \end{tabular}
+  \hspace{4em} 
+  \begin{tabular}[t]{@{}l@{}}
+    \textcolor{enhancvblue}{\faEnvelope}\ miranda.priestly@runway.com \\  
+    \textcolor{enhancvblue}{\faLinkedin}\ \href{https://www.linkedin.com/in/mirandapriestly/}{linkedin.com/in/mirandapriestly}
+  \end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.3\linewidth} 
+  \raggedleft
+  \vspace{-1.5em} 
+
+  \circleimage{3cm}{miranda.png}
+
+\end{minipage}
+\vspace{0em} 
+
+
+
+\begin{paracol}{2} 
+
+
+
+\section{SUMMARY}
+
+
+Visionary Editor-in-Chief and luxury media executive with decades of experience shaping global fashion, culture, and consumer trends. Renowned for uncompromising standards, exceptional editorial judgment, and the ability to identify emerging talent while driving world-class creative teams. Proven track record of transforming publications into industry benchmarks, influencing designers, brands, and public opinion through strategic leadership, innovation, and an unwavering commitment to excellence.
+
+
+\section{EXPERIENCE}
+
+
+
+
+\resumeentry{Editor-in-Chief}{Runway Magazine}{1992 - Present}{New York, NY}
+
+
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+
+    \item Direct editorial vision for the world's most influential fashion magazine, shaping luxury trends, discovering talent, and preserving unmatched creative standards globally.
+
+    \item Lead executive decisions across editorial, advertising, and creative teams while cultivating elite industry relationships and delivering sustained commercial success.
+
+\end{itemize}
+
+
+\resumeentry{Executive Fashion Editor}{Chic Magazine}{1985 - 1992}{New York, NY}
+
+Directed editorial planning, luxury brand partnerships, and seasonal fashion coverage, increasing magazine circulation by 38\% while establishing a reputation for trend forecasting and uncompromising quality.\par
+
+
+
+\resumeentry{Senior Fashion Editor}{Mode Magazine}{1980 - 1985}{New York, NY}
+
+Managed seasonal editorial calendars, coordinated fashion shoots with leading photographers and designers, mentored junior editors, and developed influential feature stories that strengthened the publication's reputation for refined style, cultural relevance, and editorial excellence.\par
+
+
+
+\resumeentry{Assistant Fashion Editor}{Elegance Magazine}{1977 - 1980}{New York, NY}
+
+Early editorial accomplishments included:
+
+
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+
+    \item Assisted senior editors with fashion features, sample coordination, designer relations, and publication schedules while mastering luxury editorial workflows.\par
+
+    \item Researched trends, organized runway coverage, fact-checked articles, and built trusted relationships with designers, photographers, and fashion publicists.\par
+
+\end{itemize}
+
+
+
+
+
+
+\switchcolumn
+
+
+
+\raggedright
+
+
+\section{SKILLS}
+
+
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}R Y}
+
+General & Editorial, High fashion, Publishing, Strategy\\
+
+Management & Executive leadership, Talent development\\
+
+Editorial & Trend forecasting, Story planning, Fact-checking\\
+
+Business & Marketing, Advertising, Stakeholder relations\\
+
+Creative & Art direction, Visual storytelling, Styling, Creative direction\\
+
+Technology & InDesign, Editorial CMS\\
+
+Networking & Designer relations, Luxury brands\\
+
+Soft skills & Leadership, Empathy, Perfectionism\\
+
+\end{tabularx}
+}
+
+
+
+
+
+\section{EDUCATION}
+
+
+
+\resumeentry{\href{https://guides.library.columbia.edu/uarchives/thesis}{Master of Business Admin.}}{Columbia Business School}{1976}{New York, NY}
+
+
+
+\resumeentry{\href{https://guides.nyu.edu/dissertations/nyu}{M.A. Fashion Journalism}}{New York University}{1974}{New York, NY}
+
+
+
+\resumeentry{B.A. English Literature}{Yale University}{1972}{New Haven, CT}
+
+
+
+\resumeentry{B.A. Art History}{Yale University}{1972}{New Haven, CT}
+
+
+
+
+
+
+
+
+
+\section{LANGUAGES}
+
+\vspace{6pt}
+
+\noindent
+
+
+\begin{minipage}[t]{0.98\linewidth}
+    \scorecircles{English}{Native}{5}
+\end{minipage}
+\vspace{4pt}
+
+\begin{minipage}[t]{0.98\linewidth}
+    \scorecircles{French}{Proficient}{4}
+\end{minipage}
+\vspace{4pt}
+
+\begin{minipage}[t]{0.98\linewidth}
+    \scorecircles{Italian}{Advanced}{3}
+\end{minipage}
+\vspace{4pt}
+
+\vspace{-4pt}  
+
+
+
+
+\section{PASSIONS}
+
+\vspace{8pt}
+\begin{itemize}
+
+    \item[\textcolor{enhancvblue}{\faGem}] Turning trends into standards, excellence into habit, and impossible deadlines into someone else's problem.
+
+\end{itemize}
+
+
+
+
+\end{paracol} 
+
+\end{document}
