@@ -308,6 +308,7 @@
 
 {{summary_contents}}
 
+{% if jobs %}
 \section{ {{jobs_name}}}
 
 %\titlerule[0.8pt]
@@ -326,6 +327,7 @@
 \end{itemize}
 {% endif %}
 {% endfor %}
+{% endif %}
 
 
 % PASTE [[[[SCIENTIFIC PRODUCTION]]]] HERE
@@ -339,6 +341,7 @@
 
 \raggedright
 
+{% if skills %}
 \section{ {{skills_name}}}
 
 %\begin{justify}
@@ -354,6 +357,7 @@
 {% endfor %}
 \end{tabularx}
 }
+{% endif %}
 
 
 
@@ -373,6 +377,7 @@
 
 
 
+{% if languages %}
 \section{ {{languages_name}}}
 
 \vspace{6pt}
@@ -386,8 +391,10 @@
 \vspace{4pt}
 {% endfor %}
 \vspace{-4pt}  % to cancel the last vspace
+{% endif %}
 
 
+{% if passions %}
 \section{ {{passions_name}}}
 
 \vspace{8pt}
@@ -396,6 +403,7 @@
     \item[\textcolor{enhancvblue}{ {{passion.icon}}}] {{passion.description}}
 {% endfor %}
 \end{itemize}
+{% endif %}
 
 
 % PASTE [[[[SOFTWARE DEVELOPMENT]]]] HERE
