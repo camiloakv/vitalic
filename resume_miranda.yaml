@@ -5,14 +5,17 @@ phone: '001-646-6455231'
 email: 'miranda.priestly@runway.com'
 linkedin_raw: 'https://www.linkedin.com/in/mirandapriestly/'
 linkedin_clean: 'linkedin.com/in/mirandapriestly'
-photo: 'miranda.png'
+photo: 'miranda.png'  # commment this line to replace photo with white placeholder
 
+# you can personalize section names
 summary_name: 'SUMMARY'
 summary_contents: 'Visionary Editor-in-Chief and luxury media executive with decades of experience shaping global fashion, culture, and consumer trends. Renowned for uncompromising standards, exceptional editorial judgment, and the ability to identify emerging talent while driving world-class creative teams. Proven track record of transforming publications into industry benchmarks, influencing designers, brands, and public opinion through strategic leadership, innovation, and an unwavering commitment to excellence.'
 
 
+# from here on, comment section_name and section to exclude from generated pdf document
 jobs_name: 'EXPERIENCE'
 jobs:
+  # 'description' and 'items' are both optional to allow for a single paragraph and/or a list of bullets
   1:
     role: 'Editor-in-Chief'
     company: 'Runway Magazine'
@@ -74,6 +77,7 @@ skills:
 
 education_name: 'EDUCATION'
 education:
+  # 'link' is optional, the respective 'title' in the pdf document redirects to it
   1:
     title: 'Master of Business Admin.'
     institution: 'Columbia Business School'
@@ -100,6 +104,7 @@ education:
 
 languages_name: 'LANGUAGES'
 languages:
+  # 'score' is the number of lit circles (maximum five)
   1:
     lang: 'English'
     proficiency: 'Native'
@@ -124,8 +129,9 @@ languages:
 
 passions_name: 'PASSIONS'
 passions:
+  # you can find more icons in https://fontawesome.com/v5/icons
   1:
-    icon: '\faGem'  # you can find more icons in https://fontawesome.com/v5/icons
+    icon: '\faGem'
     description: 'Turning trends into standards, excellence into habit, and impossible deadlines into someone else''s problem.'
     #Turning trends into standards, excellence into habit, and impossible deadlines into someone else's problem.
     #Recognizing exceptional talent, impeccable taste, and avoidable mistakes—usually before anyone else does.
