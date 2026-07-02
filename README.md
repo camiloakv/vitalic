@@ -1,6 +1,6 @@
 # Vitalic
 
-> "Vitalic" kinda resembles "Vitae", right?... Anyway
+> _Vitalic_ kinda resembles _Vitae_, right?... Anyway
 
 Generate a stylish and professional _curriculum_ _vitae_ (resume) from fields in a YAML (or Markdown, not yet implemented) file. Page layout (margins, font size, etc) can be easily adjusted to account for more/less text and variying section sizes.
 
@@ -8,6 +8,7 @@ Generate a stylish and professional _curriculum_ _vitae_ (resume) from fields in
 
 - Python, built with version 3.13.
 - `xelatex`, included in standard TeX distributions like MiKTeX.
+- Roboto Light font: optional, available at https://fonts.google.com/specimen/Roboto
 
 ## Usage
 
@@ -18,13 +19,18 @@ Generate a stylish and professional _curriculum_ _vitae_ (resume) from fields in
 - Optionally, adjust values in `layout_en.yaml` and repeat last two steps.
 
 <!--
+wsl vitalic.sh
+wsl bash -c "vitalic.sh argument1"
+-->
+
+<!--
 - Generate PDF by running `generate.sh`.
 - Optional (adjust layout yaml and repeat
 -->
 
 ## Status
 
-✅ Read some sections from YAML to simple clean template
+✅ Read some sections from YAML to basic clean template
 
 ✅ Read some sections from YAML to stylish clean template
 
@@ -38,15 +44,15 @@ Generate a stylish and professional _curriculum_ _vitae_ (resume) from fields in
 
 ✅ Add logic for photo
 
-⬜ Add logic for extra sections
+⬜ Add metadata info with logic
+
+⬜ Add extra sections with logic
 
 ⬜ Pass layout and resume info filenames as optional parameters
 
-⬜ Add metadata info
+⬜ Add bash script
 
 ⬜ Read from YAML or markdown
-
-⬜ Add bash script
 
 ⬜ Add PDF analysis
 
