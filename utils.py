@@ -194,7 +194,7 @@ def main():
     #filename_filled = 'filled/resume_miranda.tex'
 
     filename_layout = 'layout_en.yml'
-    filename_resume = 'resume_en.yaml'
+    filename_resume = 'resume_miranda.yaml' #'resume_en.yaml'
     filename = 'resume.tex'
 
     filename_raw = Path('raw', filename)
