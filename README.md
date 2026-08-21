@@ -1,8 +1,8 @@
 # Vitalic
 
-> _Vitalic_ kinda resembles _Vitae_, right?... Anyway
-
 Generate a stylish and professional _curriculum_ _vitae_ (resume) from fields in a YAML (or Markdown, not yet implemented) file. Page layout (margins, font size, etc) can be easily adjusted to account for more/less text and variying section sizes.
+
+Take a look at the generated document [example](filled/resume.pdf)!
 
 ## Requirements
 
@@ -30,30 +30,29 @@ wsl bash -c "vitalic.sh argument1"
 
 ## Status
 
-✅ Read some sections from YAML to basic clean template
-
-✅ Read some sections from YAML to stylish clean template
-
-✅ Clean raw template
-
-✅ Read some sections from YAML to stylish raw template
-
-✅ Read all sections from YAML to stylish raw template
+✅ Read all sections from YAML to raw template
 
 ✅ Fix whitespaces in curly braces
 
 ✅ Add logic for photo
 
-⬜ Add metadata info with logic
-
 ⬜ Add extra sections with logic
+
+⬜ Add metadata info with logic
 
 ⬜ Pass layout and resume info filenames as optional parameters
 
-⬜ Add bash script
+⬜ Add bash script to run full pipeline
 
-⬜ Read from YAML or markdown
+⬜ Read from YAML **or markdown**
 
 ⬜ Add PDF analysis
 
 
+<!--
+## Backlog
+
+- Add fields to layout YAML (e.g. metadata)
+
+https://tex.stackexchange.com/questions/26529/how-can-i-generate-pdf-metadata-from-latex
+-->
